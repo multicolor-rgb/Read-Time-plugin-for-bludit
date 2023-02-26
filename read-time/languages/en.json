@@ -1,0 +1,7 @@
+{
+    "plugin-data":
+    {
+        "name": "Read Time",
+        "description": "this plugin will show estimated time for read page content"
+    }
+}
