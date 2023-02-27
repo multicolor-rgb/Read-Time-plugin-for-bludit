@@ -15,21 +15,13 @@ global $WHERE_AM_I;
 if ($WHERE_AM_I == 'page'){
 echo '<p><img src="'.$this->domainPath().'img/clock.svg" style="width:25px;margin-right:5px;display:inline-block"><span id="showReadTime"></span> '.$this->getValue('readtime').'</p>
 <hr>';
-echo '<span class="contentReader">';
-
+ 
 };
 
 
 }
 
-public function pageEnd(){
-
-global $WHERE_AM_I;
-if($WHERE_AM_I == 'page') {
-echo '</span>';
-};
-
-}
+ 
 
 
 
@@ -44,9 +36,10 @@ global $page;
 if ($WHERE_AM_I == 'page') {
 
 echo '<script>
-            function readingTime() {
-const content = document.querySelector(".contentReader");
-  const text = content.innerText;
+
+ function readingTime() {
+ 
+  const text = `'.strip_tags(str_replace('`','"',$page->content())).'`;
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
   const time = Math.ceil(words / wpm);
